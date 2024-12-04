@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 
 ### Run
-#### CodeT5 with random forest (JIT-Core)
+#### 1. CodeT5 with random forest (JIT-Core)
 
 **1.1 CodeT5 with semantic feature**
 
@@ -38,9 +38,9 @@ pip install -r requirements.txt
 ```python combine.py```
 
 
-#### CodeT5 with concatenated embeddings (JIT-Coca)
+#### 2. CodeT5 with concatenated embeddings (JIT-Coca)
 
-**2. CodeT5 with semantic feature and expert features**
+**CodeT5 with semantic feature and expert features**
 
 ```bash scripts/finetune_jitdp_SF_EF.sh -g 0```
 
