@@ -2,7 +2,7 @@
 Replication package for the paper entitled: An Extensive Study on Pre-Trained Models for Just-in-Time Defect Prediction
 
 ### Data Preparation
-The `Original` and `Unified` datasets can be found [here](https://drive.google.com/drive/folders/1l9eNwnOje7fOX-dmb0Gh1jH9TfQkVlia?usp=drive_link). Download `*.tar.gz`, and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
+The `Original` and `Unified` datasets can be found [here](https://drive.google.com/drive/folders/1l9eNwnOje7fOX-dmb0Gh1jH9TfQkVlia?usp=sharing). Download `*.tar.gz`, and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
 
 
 ### Pretrained model files Preparation
