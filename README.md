@@ -2,7 +2,7 @@
 Replication package for the paper entitled: An Extensive Study on Pre-Trained Models for Just-in-Time Defect Prediction
 
 ### Data Preparation
-The `Original` and `Unified` datasets are can be found [here](https://drive.google.com/drive/folders/1vjaJGEYyHIVq7ZPq3P_7N_Pc6_q7slS7?usp=sharing). Download `*.tar.gz` and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
+The `Original` and `Unified` datasets can be found [here](https://drive.google.com/drive/folders/1vjaJGEYyHIVq7ZPq3P_7N_Pc6_q7slS7?usp=sharing). Download `*.tar.gz`, and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
 
 
 ### Pretrained model files Preparation
@@ -23,13 +23,13 @@ pip install -r requirements.txt
 ```
 
 ### Run
-#### 1. CodeT5 with random forest (JIT-Core)
+#### 1. JIT-Core: CodeT5 with random forest
 
 **1.1 CodeT5 with semantic feature**
 
 ```bash scripts/finetune_jitdp_SF.sh -g 0```
 
-**1.2. Random forest with semantic feature**
+**1.2. Random forest with expert features**
 
 ```python RF.py```
 
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```python combine.py```
 
 
-#### 2. CodeT5 with concatenated embeddings (JIT-Coca)
+#### 2. JIT-Coca: CodeT5 with concatenated embeddings
 
 **CodeT5 with semantic feature and expert features**
 
