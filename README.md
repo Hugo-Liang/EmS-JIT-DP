@@ -31,13 +31,13 @@ pip install -r requirements.txt
 bash scripts/finetune_jitdp_SF.sh -g 0
 ```
 
-+ 1.2. Random forest with expert features
++ 1.2. Random Forest with expert features
 
 ```
 python RF.py
 ```
 
-+ 1.3. Average prediction results from CodeT5 and Forest
++ 1.3. Average prediction results from CodeT5 and Random Forest
 
 ```
 python combine.py
