@@ -14,8 +14,8 @@ Manually download the **added_tokens.json, config.json, merges.txt, pytorch_mode
 * OS: CentOS 7.6
 
 ```
-git clone https://github.com/Hugo-Liang/SETCS.git
-cd SETCS
+git clone https://github.com/Hugo-Liang/EmS-JIT-DP.git
+cd EmS-JIT-DP
 conda create -n EmS python=3.8
 conda activate EmS
 pip install torch==2.0.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html
