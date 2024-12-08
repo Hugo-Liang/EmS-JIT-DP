@@ -34,20 +34,21 @@ while getopts ":g:e:" opt; do
 done
 
 function finetune() {
+    local project=$1
     SCRIPT_PATH="src/fine_tuning/finetune_JIT_SF_EF.py"
     if [[ $EVAL_FLAG == false ]]; then
       python $SCRIPT_PATH \
           --do_train \
           --do_test \
-          --train_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/changes_train_fixed.jsonl \
-          --dev_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/changes_valid_fixed.jsonl \
-          --test_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/changes_test_fixed.jsonl \
-          --model_type codet5_CC \
+          --train_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_train.jsonl \
+          --dev_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_valid.jsonl \
+          --test_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_test.jsonl \
+          --model_type codet5 \
           --warmup_steps 0 \
           --learning_rate 2e-5 \
-          --model_name_or_path "Salesforce/codet5-base" \
+          --model_name_or_path "$CURRENT_DIR/models/codet5_base" \
           --load_model_path $MODEL_PATH \
-          --output_dir ${CURRENT_DIR}/outputs/models/fine-tuning/JITDefectPrediction/SF_EF \
+          --output_dir ${CURRENT_DIR}/outputs/models/fine-tuning/JITDefectPrediction/SF_EF/CodeT5/Unified/${project}/bs32_gas4 \
           --train_batch_size 32 \
           --gradient_accumulation_steps 4 \
           --eval_batch_size 32 \
@@ -80,7 +81,15 @@ function finetune() {
           --log_steps 5 \
           --train_steps 2500 \
           --evaluate_sample_size -1
-    fi 
+    fi
 }
 
-finetune;
+PROJECTS=("gerrit" "go" "jdt" "openstack" "platform" "qt")
+# PROJECTS=("qt")
+
+for PROJECT in "${PROJECTS[@]}"; do
+    echo "Fintuning CodeT5_EF for project: $PROJECT"
+    finetune "$PROJECT"
+done
+
+#finetune;
