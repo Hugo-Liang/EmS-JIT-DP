@@ -75,9 +75,9 @@ def auc_pc(label, pred):
 
 project = "qt"      # "gerrit" "go" "jdt" "openstack" "platform" "qt"
 
-com_ = f"/home/fanguisheng/Liang/DP/cct5/outputs/models/fine-tuning/JITDefectPrediction/SF/LApredict_filtered_inconsistent_preprocessed/inherit_clone_with_IL_modified0/{project}/all_metrics/bs32_gas4_1500step/checkpoint-best-f1/test_com.csv"
+com_ = f"./outputs/models/fine-tuning/JITDefectPrediction/SF/LApredict_filtered_inconsistent_preprocessed/inherit_clone_with_IL_modified0/{project}/all_metrics/bs32_gas4_1500step/checkpoint-best-f1/test_com.csv"
 
-sim_ = f"/home/fanguisheng/Ye/jitdp-test/baselines/SimCom_JIT-main/Sim/pred_scores/test_sim_{project}.csv"
+sim_ = f"./pred_scores/test_sim_{project}.csv"
 
 # sim_res
 pred, label = read_csv_2(sim_)
