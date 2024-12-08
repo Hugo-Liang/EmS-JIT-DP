@@ -7,7 +7,7 @@ PRETRAINED_MODEL_DIR="$CURRENT_DIR/models/pre-training/Cls"
 #MODEL_PATH="$CURRENT_DIR/models/pre-training/Cls/pytorch_model.bin"  # default codet5_base + CCT5 dict + CCT5 classifier
 MODEL_PATH="$CURRENT_DIR/models/codet5_base/pytorch_model.bin"   # codet5_base + codet5_base dict + CCT5 classifier
 # FINETUNED_MODEL_PATH="$CURRENT_DIR/models/fine-tuning/JITDefectPrediction/SF/pytorch_model.bin"
-FINETUNED_MODEL_PATH="/home/zangtao/Liang/DP/cct5/outputs/models/fine-tuning/JITDefectPrediction/SF/LApredict_preprocessed/qt/all_metrics/bs32_gas4/checkpoint-700-0.7742-0.3602-0.2857-0.4872-0.748-0.6522-0.4199/pytorch_model.bin"
+FINETUNED_MODEL_PATH="$CURRENT_DIR/models/fine-tuning/JITDefectPrediction/SF/LApredict_preprocessed/qt/all_metrics/bs32_gas4/checkpoint-700-0.7742-0.3602-0.2857-0.4872-0.748-0.6522-0.4199/pytorch_model.bin"
 EVAL_FLAG=false
 
 usage() {
@@ -42,15 +42,15 @@ function finetune() {
       python $SCRIPT_PATH \
           --do_train \
           --do_test \
-          --train_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/LApredict_filtered_inconsistent_preprocessed/inherit_clone_with_IL_modified0/${project}/changes_train.jsonl \
-          --dev_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/LApredict_filtered_inconsistent_preprocessed/inherit_clone_with_IL_modified0/${project}/changes_valid.jsonl \
-          --test_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/LApredict_filtered_inconsistent_preprocessed/inherit_clone_with_IL_modified0/${project}/changes_test.jsonl \
+          --train_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_train.jsonl \
+          --dev_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_valid.jsonl \
+          --test_filename ${CURRENT_DIR}/Dataset/fine-tuning/JITDefectPrediction/Unified/${project}/changes_test.jsonl \
           --model_type codet5_CC \
           --warmup_steps 0 \
           --learning_rate 2e-5 \
           --model_name_or_path "$CURRENT_DIR/models/codet5_base" \
           --load_model_path $MODEL_PATH \
-          --output_dir ${CURRENT_DIR}/outputs/models/fine-tuning/JITDefectPrediction/SF/codet5/inherit_clone_with_IL_modified0/${project}/all_metrics/bs32_gas4_1500step \
+          --output_dir ${CURRENT_DIR}/outputs/models/fine-tuning/JITDefectPrediction/SF/codet5/Unified/${project}/all_metrics/bs32_gas4_1500step \
           --train_batch_size 32 \
           --gradient_accumulation_steps 4 \
           --eval_batch_size 32 \
@@ -87,9 +87,9 @@ function finetune() {
 }
 
 #PROJECTS=("go" "openstack" "qt")
-#PROJECTS=("gerrit" "go" "jdt" "openstack" "platform" "qt")
+PROJECTS=("gerrit" "go" "jdt" "openstack" "platform" "qt")
 #PROJECTS=("gerrit")
-PROJECTS=("go" "jdt" "openstack" "platform" "qt")
+#PROJECTS=("go" "jdt" "openstack" "platform" "qt")
 
 
 for PROJECT in "${PROJECTS[@]}"; do
