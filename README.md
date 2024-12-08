@@ -25,24 +25,32 @@ pip install -r requirements.txt
 ### Run
 #### 1. JIT-Core: CodeT5 with random forest
 
-**1.1 CodeT5 with semantic feature**
++ 1.1 CodeT5 with semantic feature
 
-```bash scripts/finetune_jitdp_SF.sh -g 0```
+```
+bash scripts/finetune_jitdp_SF.sh -g 0
+```
 
-**1.2. Random forest with expert features**
++ 1.2. Random forest with expert features
 
-```python RF.py```
+```
+python RF.py
+```
 
-**1.3. Average prediction results from CodeT5 and Forest**
++ 1.3. Average prediction results from CodeT5 and Forest
 
-```python combine.py```
+```
+python combine.py
+```
 
 
 #### 2. JIT-Coca: CodeT5 with concatenated embeddings
 
-**CodeT5 with semantic feature and expert features**
++ CodeT5 with semantic feature and expert features
 
-```bash scripts/finetune_jitdp_SF_EF.sh -g 0```
+```
+bash scripts/finetune_jitdp_SF_EF.sh -g 0
+```
 
 
 ### Get Involved
