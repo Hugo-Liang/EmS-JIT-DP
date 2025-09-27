@@ -2,7 +2,7 @@
 Replication package for the paper entitled: An Extensive Study on Pre-Trained Models for Just-in-Time Defect Prediction
 
 ### Data Preparation
-The `Original` and `Unified` datasets are can be found [here](https://drive.google.com/drive/folders/1vjaJGEYyHIVq7ZPq3P_7N_Pc6_q7slS7?usp=sharing). Download `*.tar.gz` and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
+The `Original`, `Unified`, and `Unified-Prompt` (used to fine-tune LLMs) datasets can be found [here](https://drive.google.com/drive/folders/1vjaJGEYyHIVq7ZPq3P_7N_Pc6_q7slS7?usp=sharing). Download `*.tar.gz` and extract it under the `Dataset/fine-tuning/JITDefectPrediction/` folder via `tar -zxvf *.tar.gz`.
 
 
 ### Pretrained model files Preparation
@@ -27,22 +27,30 @@ pip install -r requirements.txt
 
 **1.1 CodeT5 with semantic feature**
 
-```bash scripts/finetune_jitdp_SF.sh -g 0```
+```
+bash scripts/finetune_jitdp_SF.sh -g 0
+```
 
 **1.2. Random forest with semantic feature**
 
-```python RF.py```
+```
+python RF.py
+```
 
 **1.3. Average prediction results from CodeT5 and Forest**
 
-```python combine.py```
+```
+python combine.py
+```
 
 
 #### 2. CodeT5 with concatenated embeddings (JIT-Coca)
 
 **CodeT5 with semantic feature and expert features**
 
-```bash scripts/finetune_jitdp_SF_EF.sh -g 0```
+```
+bash scripts/finetune_jitdp_SF_EF.sh -g 0
+```
 
 
 ### Get Involved
